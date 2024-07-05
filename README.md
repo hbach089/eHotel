@@ -3,7 +3,7 @@
 The eHotel project is a comprehensive hotel management system developed using the Flask framework. It supports managing multiple hotel chains, each consisting of several hotels, and provides features for handling rooms and employee assignments. The system ensures efficient hotel operations, from room reservations to employee management.
 
 ## Introduction
-The eHotel project aims to streamline hotel management tasks by offering an intuitive web-based interface. Built with Python and Flask, it utilizes Jinja2 for templating and Bootstrap for responsive design, ensuring a seamless user experience across devices. The backend is powered by PostgreSQL, which efficiently handles data storage and retrieval for the numerous entities involved, such as hotel chains, hotels, employees, and rooms.
+The eHotel project aims to streamline hotel management tasks by offering an intuitive web-based interface. Built with Python and Flask, it utilizes Jinja2 for templating and Bootstrap for responsive design. The backend is powered by PostgreSQL, which efficiently handles data storage and retrieval for the numerous entities involved, such as hotel chains, hotels, employees, and rooms. I used the pyscopg2 API to interact with the database from my Flask application.
 ## Technologies Used
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•	Flask  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•	Jinja2  
