@@ -26,21 +26,27 @@ To set up the eHotel project, you will need to have Python and PostgreSQL instal
 ![image](https://github.com/hbach089/eHotel/assets/146272622/68e2ea87-40c5-42c9-a512-6bdb557e1495)
 
 ## Screenshots
-The customer view:  
+## The customer view: 
+### Home page:  
 ![image](https://github.com/hbach089/eHotel/assets/146272622/cd2cca29-488c-4241-aa00-5342f6e6b863)  
 
+### Choosing a hotelchain:
 ![image](https://github.com/hbach089/eHotel/assets/146272622/2f823fed-955a-4869-af23-ae3dc34feedc)  
 
+### Choosing a hotel:    
 ![image](https://github.com/hbach089/eHotel/assets/146272622/009c01f3-4daf-43d6-a5fa-a9e31d850524)  
 
+### Picking room amenities:  
 ![image](https://github.com/hbach089/eHotel/assets/146272622/07cfc5b9-3493-4429-b0a8-138acf4604ae)  
 
+### Rooms matching the chosen amenities in database: 
 ![image](https://github.com/hbach089/eHotel/assets/146272622/c36b0dfa-d068-4038-90b4-c57aca4510dc)  
 
+### Customer books a room
 ![image](https://github.com/hbach089/eHotel/assets/146272622/941900ea-bab2-4479-ba74-ec48379017a8)  
 
-The employee view:   
-
+## The employee view:   
+### Edit choices available to employee
 ![image](https://github.com/hbach089/eHotel/assets/146272622/0f48b254-2295-4db3-839d-5b8f007e99b5)  
 
 ## Next steps
