@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>{%block title%}HotelChains{%endblock%}</title>
+</head>
+<body>
+  {%block content%}
+  <h2>Hotels Chains</h2>
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <h4><b style="color: red;">{{ message }}</b></h4>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  {%endwith%}
+  {%for id,h_name in hotelchains_dict.items()%}
+    <a href="{{url_for('hotels',hotelchain=h_name,cid=id[0])}}">
+      <div class="box">
+        <ul class="htl">
+            <div class="img">
+              <img src="{{url_for('static',filename='images/'+h_name+'.png')}}" width="250">
+            </div>
+            <div class="txt">
+              <p>INFO ABOUT {{h_name}} HERE</p>
+              <p>Province : {{id[4]}}</p>
+              <p>Address :  {{id[2]}} {{id[3]}} {{id[5]}}</p>
+              <p>Email : {{id[1]}}</p>
+              <p>Phone # : {{id[-1]}}</p>
+              
+            </div>
+        </ul>
+      </div>
+      <br>
+    </a>
+  {%endfor%}
+  {%endblock%}
+</body>
+</html>

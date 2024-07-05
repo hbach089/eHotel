@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {%block content%}
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <h4><b style="color: red;">{{ message }}</b></h4>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  {%endwith%}
+  <div class="center-container">
+    <h3><i>Thank you for booking with us at {{chosen_hotel}}, </i></h3>
+  </div>
+  <div class="center-container">
+    <h3><i>we look forward to seeing you soon {{fname}}!</i></h3>
+  </div>
+  
+  <form action="#" method="post">
+    
+    <div class="container">
+      <div class="thankyou-container">
+        {{form.updatecust}}
+      </div>
+  
+      <div class="thankyou-container">
+        {{form.deletebook}} 
+      </div>
+    </div>
+  </form>
+  
+  {%endblock%}
+</body>
+</html>

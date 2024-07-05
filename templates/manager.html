@@ -1,0 +1,109 @@
+{%extends 'emplogin.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% block content %}
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <h4><b style="color: red;">{{ message }}</b></h4>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  {%endwith%}
+  <h1>Employees working at {{ hotel_name }}</h1>
+  <br>
+  <!--<h1>{{ emplist }}</h1>-->
+  <form id="employeeForm" name="selectedEmployees" method="post" action="{{ url_for('emprole', empdesc=empdesc) }}">
+    <table class="manager_table">
+      <tr>
+        <th style="background-color: red;">Select</th>
+        <th style="background-color: gray;"><b>Employee SSN</b></th>
+        <th style="background-color: gray;"><b>Employee name</b></th>
+        <th style="background-color: gray;"><b>Address</b></th>
+        <th style="background-color: gray;"><b>Position</b></th>
+      </tr>
+      {% for emp in emplist %}
+        <tr>
+          <td><input type="checkbox" name="selectedEmployees" value="{{ emp[0] }}"></td>
+          <th>{{ emp[0] }}</th>
+          <th>{{ emp[2] }} {{ emp[3] }}</th>
+          <th>{{ emp[4] }}, {{ emp[5] }}, {{ emp[6] }}, {{ emp[7] }}</th>
+          <th>{{ emp[-1] }}</th>
+        </tr> 
+      {% endfor %}
+    </table>
+    <!--<button type="submit">Fire employee(s)</button>-->
+    {{form.remEmp}}
+  </form>
+  <div class="center-container">
+    <h4>New employee information</h4>
+  </div>
+  
+  <form action="#" method="post">
+    <div class="center-container" style="padding-left: 20px;">
+      <div class="client">
+        <label for="empssn" style="padding-left: 50px">{{ form.empssn.label }}</label><br>
+        <input type="text" id="empssn" name="empssn" placeholder="{{ form.empssn.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="fname" style="padding-left: 60px">{{ form.fname.label }}</label><br>
+        <input type="text" id="fname" name="fname" placeholder="{{ form.fname.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="lname" style="padding-left: 57px">{{form.lname.label}}</label><br>
+        <input type="text" id="lname" name="lname" placeholder="{{form.lname.render_kw.placeholder}}"required>
+      </div> 
+      <div class="client">
+        <label for="phonenumber" style="padding-left: 44px">{{form.phonenumber.label}}</label><br>
+        <input type="text" id="phonenumber" name="phonenumber" placeholder="{{form.phonenumber.render_kw.placeholder}}"required>
+      </div>     
+    </div>
+    <form action="#" method="post">
+      <div class="center-container">
+        <div class="client">
+          <label for="street" style="padding-left: 80px">{{ form.street.label }}</label><br>
+          <input type="text" id="street" name="street" placeholder="{{ form.street.render_kw.placeholder }}" required>
+        </div>
+        <div class="client">
+          <label for="city" style="padding-left: 80px">{{ form.city.label }}</label><br>
+          <input type="text" id="city" name="city" placeholder="{{ form.city.render_kw.placeholder }}" required>
+        </div>
+        <div class="client">
+          <label for="province" style="padding-left: 90px">{{form.province.label}}</label><br>
+          <div class="section">
+            {{form.province}}
+          </div>
+          <!--<input type="text" id="province" name="province" placeholder="{{form.province.render_kw.placeholder}}"required>-->
+        </div>
+        <div style="margin-left:15px;">
+          <label for="postalcode" style="padding-left: 57px">{{form.postalcode.label}}</label><br>
+          {{form.postalcode}}
+        </div>   
+        <div style="margin-left:15px;">
+          <label for="position" style="padding-left: 65px">{{form.position.label}}</label><br>
+          <div style="padding-left: 0.8cm;">
+            {{form.position}}
+          </div>
+        </div>      
+      </div>
+      <form action="#" method="post">
+        <div class="center-container">
+          {{form.addEmp}}
+        </div>
+      </form>
+      <form action="#" method="post">
+        <div class="center-container">
+          {{form.backbtn}}
+        </div>
+      </form>
+{% endblock %}
+
+</body>
+</html>

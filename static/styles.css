@@ -1,0 +1,120 @@
+.nav-link{
+  color: white!important;
+}
+.navbar-brand{
+  color: white!important
+}
+
+.htl{
+  margin-top: 10px;
+}
+.img{
+  float: left;
+  margin-bottom: 10px;
+}
+
+.box{
+  border: 1px solid black;
+  padding: 10px;
+  overflow: auto;
+}
+.txt{
+  float: left;
+  margin-left: 10pm;
+  margin:0 auto;
+  padding-left: 14px;
+}
+.section {
+  padding-bottom: 10px; /* Add some padding for spacing */
+  padding-left: 25px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+.sectiontext{
+  padding-left: 40px;
+}
+
+.hotelimg{
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hoteldesc{
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.submit{
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.client{
+  float: left;
+  margin: 20px;
+}
+
+.center-container_book {
+  padding: 10px 20px; /* Increase padding for a larger button */
+  font-size: 16px; /* Increase font size */
+  background-color:  #0096FF; /* Change background color */
+  color: white; /* Change text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Add pointer cursor on hover */
+}
+
+.container {
+  align-items: center; 
+  display: flex;
+  justify-content: center; /* Center the divs horizontally */
+  height: 100vh; 
+}
+
+.thankyou-container {
+  display: inline-block; /* Display the divs inline */
+  background-color: #0096FF;
+  color:yellow;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin: 3cm; /* Add margin for spacing between divs */
+}
+
+.manager_table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 2px solid black; /* Black borders */
+  padding: 8px; /* Padding inside cells */
+  text-align: left; /* Align text to the left */
+}
+
+th {
+  background-color: #f2f2f2; /* Light gray background for header cells */
+}
+th:nth-child(1) {
+  /* Set the width of the second (Employee name) column */
+  width: 180px; /* Adjust the width as needed */
+}
+th:nth-child(2) {
+  /* Set the width of the second (Employee name) column */
+  width: 300px; /* Adjust the width as needed */
+}
+
+th:nth-child(3) {
+  /* Set the width of the third (Address) column */
+  width: 300px; /* Adjust the width as needed */
+}
+

@@ -1,0 +1,30 @@
+{%extends 'emplogin.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {%block content%}
+  <div class="center-container">
+    <h2>Make changes to one of the following</h2>
+  </div>
+  <form action="#" method="post">
+    <div class="container">
+      <div class="thankyou-container">
+        {{form.rooms}}
+      </div>
+      <div class="thankyou-container">
+        {{form.hotels}} 
+      </div>
+      <div class="thankyou-container">
+        {{form.employees}} 
+      </div>
+    </div>
+  
+  </form>
+  {%endblock%}
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% block content %}
+    <div class="hotelimg">
+      <h1>{{ chosen_hotel }}</h1>
+    </div>  
+      <div class="hotelimg">
+        <img src="{{ url_for('static', filename='images/' + chosen_hotel + '.png') }}" width="250"><br>
+      </div>
+      <div class="hoteldesc">
+        <p><b>{{chosen_chain}}</b></p>
+        <p><b>Phone number: {{hotel_desc[0]}}</b></p>
+        <p><b>Address: {{hotel_desc[1]}},{{hotel_desc[2]}},{{hotel_desc[3]}}</b></p>
+      </div>
+        <br>
+  
+        <form action="#" method="post">
+          <div class="section">
+            <br>
+            <h4>{{ form.capacity.label }}</h4>
+            <div class="sectiontext">
+              {{ form.capacity }}
+            </div>
+          </div>
+  
+          <br>
+          <hr>
+          <div class="section">
+            <br>
+            <h4>{{ form.view.label }}</h4>
+            <div class="sectiontext">
+              {{ form.view }}
+            </div>
+          </div>
+  
+          <br>
+          <hr>
+          <div class="section">
+            <br>
+            <h4>Extendable</h4>
+            <div class="sectiontext">
+              Extra Bed <input type="checkbox" name="Extra Bed" id="Extra Bed" value="True">
+            </div>
+          </div>
+  
+          <br>
+          
+          <div class="center-container_book">
+            <div class="submit">
+              {{ form.submit }}<br/>
+            </div>
+          </div>
+        </form>
+
+  {% endblock %}
+</body>
+</html>

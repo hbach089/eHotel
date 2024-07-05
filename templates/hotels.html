@@ -1,0 +1,109 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+<title>{%block title%}HOTELS{%endblock%}</title>
+</head>
+<body>
+  {%block content%}
+  <h2>Hotels</h2>
+  {%for id,h_name in hotel_dict.items()%}
+    <!--<h1>{{id[0]}}</h1>-->
+    {%if chosen_hotelchain=='nav'%}
+      <a href="{{url_for('roominfo',hotel=h_name,hid=id[0])}}">
+        <div class="box">
+          <ul class="htl">
+              <div class="img">
+                <img src="{{url_for('static',filename='images/'+h_name.replace(' ', '_')+'.png')}}" width="250">
+              </div>
+              <div class="txt">
+                <h3> {{h_name}} </h3>
+                {%for cid in hotelchains_dict.items()%}
+                  {%if id[1]==cid[0][0]%}
+                  <h5>{{cid[1]}}</h5>
+                  <p>Province : {{id[4]}}</p>
+                  <p>Address :  {{id[2]}} {{id[3]}} {{id[5]}}</p>
+                  <p>Email : {{id[6]}}</p>
+                  <p>Phone # : {{id[-1]}}</p>
+                  {%endif%}
+                {%endfor%}
+                <br>
+                {%if id[8]==5%}
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                {%elif id[8]==4%}
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star"></span>
+                {%elif id[8]==3%}
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                {%endif%} 
+              </div>
+          </ul>
+        </div>
+        <br>
+      </a>
+    {%else%}
+      <!--<h1>{{chosen_hotelchain_ID}} and {{id[1]}}</h1>-->
+      {%if chosen_hotelchain_ID==id[1]%}
+        <a href="{{url_for('roominfo',hotel=h_name,hid=id[0])}}">
+          <div class="box">
+            <ul class="htl">
+                <div class="img">
+                  <img src="{{url_for('static',filename='images/'+h_name.replace(' ', '_')+'.png')}}" width="250">
+                </div>
+                <div class="txt">
+                  
+                  {%for cid in hotelchains_dict.items()%}
+                    {%if id[1]==cid[0][0]%}
+                      <h3> {{h_name}} </h3>
+                      <h5>{{cid[1]}}</h5>
+                      <p>Province : {{id[4]}}</p>
+                      <p>Address :  {{id[2]}} {{id[3]}} {{id[5]}}</p>
+                      <p>Email : {{id[6]}}</p>
+                      <p>Phone # : {{id[-1]}}</p>
+                    {%endif%}
+                  {%endfor%}
+                  <br>
+                  {%if id[8]==5%}
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                {%elif id[8]==4%}
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star"></span>
+                {%elif id[8]==3%}
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star" style="color: orange;"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                {%endif%} 
+                </div>
+            </ul>
+          </div>
+          <br>
+        </a>
+      {%endif%}
+    {%endif%}
+  {%endfor%}
+  {%endblock%}
+</body>
+</html>

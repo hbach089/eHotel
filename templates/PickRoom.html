@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% block content %}
+    <div class="hotelimg">
+      <h1>{{ chosen_hotel }}</h1>
+    </div>  
+    <div class="hotelimg">
+      <img src="{{ url_for('static', filename='images/' + chosen_hotel + '.png') }}" width="250"><br>
+    </div>
+    <div class="hoteldesc">
+      <p style="color: #0096FF;" ><b><i>{{chosen_chain}}</i></b></p>
+      <p><b style="color: #0096FF;"><i>Phone number: {{hotel_desc[0]}}</i></b></p>
+      <p><b style="color: #0096FF;"><i>Address: {{hotel_desc[1]}},{{hotel_desc[2]}},{{hotel_desc[3]}}</i></b></p>
+    </div>
+    <br>
+    {%for i in all_room_db_tuple%}
+    <a href="{{url_for('secondroominfo',chosen_hotel=chosen_hotel,hid=i[1],room_number=i[0],price=i[-1],room_info=i)}}">
+      <div class="box">
+        <ul class="htl">
+          <h3>Room#: {{i[0]}}</h3>
+         <!-- <h3>{{i}}</h3>-->
+          {%if i[2]%}
+            <h4>- Room is extendable</h4>
+          {%endif%}
+          <h4>- Capacity: {{i[3]}}</h4>
+          {%if i[4]%}
+            <h4>- View: Seaview</h4>
+          {%else%}
+            <h4>- View: Mountain View</h4>
+          {%endif%}
+          <h4><u>Price: {{i[-1]}}.00$</u></h4>
+          <br>
+          <h4 style="color: red;">Amenities: </h4>
+          {%for obj in amenities%}
+            {%if obj[0]==i[0]%}
+              <h5 style="color: red;">- {{obj[-1]}}</h5>
+            {%endif%}
+          {%endfor%}
+        </ul>
+      </div>
+      <br>
+    </a>
+    {%endfor%}
+
+  {% endblock %}
+</body>
+</html>

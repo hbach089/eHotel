@@ -1,0 +1,75 @@
+{%extends 'emplogin.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {%block content%}
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <h4><b style="color: red;">{{ message }}</b></h4>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  {%endwith%}
+  <form action="#" method="post">
+    <div class="center-container" style="padding-left: 20px;">
+      <div class="client">
+        <label for="roomnum" style="padding-left: 80px">{{ form1.hname.label }}</label><br>
+        <div style="padding-left: 0.8cm;">
+          {{form1.hname}}
+        </div>
+      </div>
+      <div class="client">
+        <label for="street" style="padding-left: 75px">{{ form1.street.label }}</label><br>
+        <input type="text" id="street" name="street" placeholder="{{ form1.street.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="city" style="padding-left: 80px">{{ form1.city.label }}</label><br>
+        <input type="text" id="city" name="city" placeholder="{{ form1.city.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="province" style="padding-left: 60px">{{ form1.province.label }}</label><br>
+        <input type="text" id="province" name="province" placeholder="{{ form1.province.render_kw.placeholder }}" required>
+      </div>
+      
+    </div>
+    <div class="center-container" style="padding-left: 20px;">
+      <div class="client">
+        <label for="postalcode" style="padding-left: 55px">{{ form1.postalcode.label }}</label><br>
+        <input type="text" id="postalcode" name="postalcode" placeholder="{{ form1.postalcode.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="email" style="padding-left: 74px">{{ form1.email.label }}</label><br>
+        <input type="text" id="email" name="email" placeholder="{{ form1.email.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="rating" style="padding-left: 73px">{{ form1.rating.label }}</label><br>
+        <input type="text" id="rating" name="rating" placeholder="{{ form1.rating.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="phonenumber" style="padding-left: 48px">{{ form1.phonenumber.label }}</label><br>
+        <input type="text" id="phonenumber" name="phonenumber" placeholder="{{ form1.phonenumber.render_kw.placeholder }}" required>
+      </div>
+    </div>
+    <div class="center-container" style="padding-left: 20px;">
+      <div class="client">
+        <label for="hid" style="padding-left: 67px">{{ form1.hid.label }}</label><br>
+        <input type="text" id="hid" name="hid" placeholder="{{ form1.hid.render_kw.placeholder }}" required>
+      </div>
+    </div>
+    <br><br>
+  <form action="#" method="post">
+      <div class="center-container" style="margin-bottom: 2cm">
+          {{form1.insert}}        
+      </div>
+ 
+  </form>
+  {%endblock%}
+</body>
+</html>

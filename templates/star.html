@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+<style>
+.checked {
+  color: orange;
+}
+</style>
+</head>
+<body>
+  {%block content%}
+  <a href="{{url_for('home')}}">
+    <div class="box">
+      <ul class="htl">
+        
+          <div class="img">
+            <img src="{{url_for('static',filename='images/Dolomiti.png')}}" width="250">
+          </div>
+          <div class="txt">
+            <p>INFO ABOUT DOSIMOTTI HERE</p>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+      </ul>
+    </div>
+    
+  </a>
+
+{%endblock%}
+</body>
+</html>

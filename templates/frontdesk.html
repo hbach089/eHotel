@@ -1,0 +1,46 @@
+{%extends 'emplogin.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {%block content%}
+  
+    <h1>Bookings at {{hotel_name}}</h1>
+    <form name="selectedBooking" method="post" action="#">
+      <table class="manager_table">
+        <tr>
+          <th style="background-color: red;">Select</th>
+          <th style="background-color: gray;"><b>Booking ID</b></th>
+          <th style="background-color: gray;"><b>Customer SSN</b></th>
+          <th style="background-color: gray;"><b>Hotel ID</b></th>
+          <th style="background-color: gray;"><b>RoomNumber</b></th>
+        </tr>
+      {%for i in all_bookings%}
+        <tr>
+          <td><input type="checkbox" name="selectedBookings" value="{{ i[0] }}"></td>
+          <th>{{ i[0] }}</th>
+          <th>{{ i[1] }}</th>
+          <th>{{ i[2] }}</th>
+          <th>{{ i[3] }}</th>
+        
+        </tr> 
+      {%endfor%}
+    </table>
+  
+    <div class="center-container">
+      <div class="client">
+        {{form.checkin}}
+      </div>
+    <form action="" method="post">
+      <div class="client">
+        {{form.backbtn}}
+      </div>
+    </div>
+  </form>
+  {%endblock%}
+</body>
+</html>

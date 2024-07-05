@@ -1,0 +1,62 @@
+{%extends 'emplogin.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {%block content%}
+  {{form.csrf_token}}
+  <h1>The following data will be updated for all selected rooms </h1>
+  <h3 style="color: red;">Be careful, all bookings related to these rooms will be cancelled!</h3>
+  <form action="#" method="post">
+    <div class="center-container" style="padding-left: 20px;">
+      <div class="client">
+        <label for="price" style="padding-left: 50px">{{ form.price.label }}</label><br>
+        <input type="text" id="price" name="price" placeholder="{{ form.price.render_kw.placeholder }}" required>
+      </div>
+      <div class="client">
+        <label for="extendable" style="padding-left: 60px">{{ form.extendable.label }}</label><br>
+        <div style="padding-left: 0.8cm;">
+          {{form.extendable}}
+        </div>
+      </div>
+      <div class="client">
+        <label for="lname" style="padding-left: 57px">{{form.capacity.label}}</label><br>
+        <div style="padding-left: 0.8cm;">
+          {{form.capacity}}
+        </div>
+      </div> 
+      <div class="client">
+        <label for="seaview" style="padding-left: 44px">{{form.seaview.label}}</label><br>
+        <div style="padding-left: 0.8cm;">
+          {{form.seaview}}
+        </div>
+      </div>     
+    </div>
+    <br>
+    <div class="sectiontext">
+      <div class="center-container" style="padding-left: 20px;display: block;margin-bottom: 10px;">
+        <h5>Amenities</h5>
+        <label for="TV">TV</label>
+        <input type="checkbox" name="TV" id="TV" value="True"><br>
+        <label for="AC">AC</label>
+        <input type="checkbox" name="AC" id="AC" value="True"><br>
+        <label for="Fridge">Fridge</label>
+        <input type="checkbox" name="Fridge" id="Fridge" value="True"><br>
+        <label for="Balcony">Balcony</label>
+        <input type="checkbox" name="Balcony" id="Balcony" value="True"><br>
+      </div>        
+    </div>
+    <br><br>
+      <div class="center-container" style="margin-bottom: 2cm">
+        {{form.update}}
+      </div>
+    </form>
+    
+    
+  {%endblock%}
+</body>
+</html>

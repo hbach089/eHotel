@@ -1,0 +1,56 @@
+{%extends 'emplogin.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {%block content%}
+  <h1>Rooms at {{ hotel_name }}</h1><br>
+  <h2>Now select the rooms you want to delete or update:</h2><br>
+  <form id="employeeForm" name="selectedRooms" method="post" action="{{ url_for('roomsDeleteUpdate', empdesc=empdesc) }}">
+    <table class="manager_table">
+      <tr>
+        <th style="background-color: red;">Select</th>
+        <th style="background-color: gray;"><b>Room Number</b></th>
+        <th style="background-color: gray;"><b>Extendable/Capacity</b></th>
+        <th style="background-color: gray;"><b>View</b></th>
+        <th style="background-color: gray;"><b>Price</b></th>
+      </tr>
+      {% for room in all_rooms %}
+        <tr>
+          <td><input type="checkbox" name="selectedRooms" value="{{room[0]}}"></td>
+          <th>{{room[0]}}</th>
+          {%if room[2]==True%}
+            <th>Extendable / {{room[3]}} </th>
+          {%else%}
+            <th>Not extendable / {{room[3]}} </th>
+          {%endif%}
+          {%if room[4]==True%}
+            <th>Seaview </th>
+          {%else%}
+            <th>Mountain View </th>
+          {%endif%}
+          <th> {{room[-1]}}$ </th>
+        </tr> 
+      {% endfor %}
+    </table>
+    
+    <div class="center-container">
+      <div class="client">
+        {{form.remove}}
+      </div>
+      <div class="client">
+        {{form.change}}
+      </div>
+    </div>
+    <form action="#" method="post">
+      <div class="center-container">
+        {{form.backbtn}}
+      </div>
+    </form>
+  {%endblock%}
+</body>
+</html>

@@ -1,0 +1,100 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{%block title%}BOOKING{%endblock%}</title>
+</head>
+<body>
+  {%block content%}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <h4><b style="color: red;">{{ message }}</b></h4>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <h2>Book a room</h2>
+    <div class="hotelimg">
+      <img src="{{ url_for('static', filename='images/' + chosen_hotel + '.png') }}" width="250"><br>
+    </div>
+   
+      <br>
+    {{form.hidden_tag()}}
+    <h4>Customer information</h4>
+    <form action="#" method="post">
+      <div class="center-container" style="padding-left: 20px;">
+        <div class="client">
+          <label for="fname" style="padding-left: 80px">{{ form.ssn.label }}</label><br>
+          <input type="text" id="ssn" name="ssn" placeholder="{{ form.ssn.render_kw.placeholder }}" required>
+        </div>
+        <div class="client">
+          <label for="fname" style="padding-left: 57px">{{ form.fname.label }}</label><br>
+          <input type="text" id="fname" name="fname" placeholder="{{ form.fname.render_kw.placeholder }}" required>
+        </div>
+        <div class="client">
+          <label for="lname" style="padding-left: 57px">{{form.lname.label}}</label><br>
+          <input type="text" id="lname" name="lname" placeholder="{{form.lname.render_kw.placeholder}}"required>
+        </div> 
+        <div class="client">
+          <label for="phonenumber" style="padding-left: 44px">{{form.phonenumber.label}}</label><br>
+          <input type="text" id="phonenumber" name="phonenumber" placeholder="{{form.phonenumber.render_kw.placeholder}}"required>
+        </div>     
+      </div>
+      <form action="#" method="post">
+        <div class="center-container">
+          <div class="client">
+            <label for="street" style="padding-left: 80px">{{ form.street.label }}</label><br>
+            <input type="text" id="street" name="street" placeholder="{{ form.street.render_kw.placeholder }}" required>
+          </div>
+          <div class="client">
+            <label for="city" style="padding-left: 80px">{{ form.city.label }}</label><br>
+            <input type="text" id="city" name="city" placeholder="{{ form.city.render_kw.placeholder }}" required>
+          </div>
+          <div class="client">
+            <label for="province" style="padding-left: 67px">{{form.province.label}}</label><br>
+            <div class="section">
+              {{form.province}}
+            </div>
+            <!--<input type="text" id="province" name="province" placeholder="{{form.province.render_kw.placeholder}}"required>-->
+          </div>
+          <div style="margin-left:15px;">
+            <label for="postalcode" style="padding-left: 57px">{{form.postalcode.label}}</label><br>
+            <input type="text" id="postalcode" name="postalcode" placeholder="{{form.postalcode.render_kw.placeholder}}"required>
+          </div>      
+        </div>
+      <br>
+      <br>
+      <br>
+      <div class="center-container">
+        <br>
+        <h4>Booking date</h4><br>
+        <div class="sectiontext">
+          From <input type="date" id="start" name="trip-start" value="2024-03-31" min="2024-01-01" max="2024-12-31" />
+          To <input type="date" id="end" name="trip-end" value="2024-04-30" min="2024-01-01" max="2024-12-31" />
+        </div>
+      </div>
+      <br><br>
+      <div class="center-container_book">
+          {{form.book}}
+      </div>
+      
+    </form>
+    <div class="center-container_book">
+      <div style="margin-bottom: 1px;">
+        <a href="{{url_for('roominfo',hotel=chosen_hotel,hid=hid)}}">
+          {{form.back}}
+        </a>
+      </div>
+    </div>
+    
+    
+  {%endblock%}
+</body>
+</html>
+
+
+<!--QUAND ON APPUIE SUR BOOK EN BAS DE LA PAGE, CA GENERE BOOKINGID, ET ASSIGNE LE CUSTOMER A UNE ROOM-->
